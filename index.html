@@ -16,45 +16,32 @@ body{
 }
 
 .container{
-    margin-top:12%;
+    margin-top:10%;
 }
 
 h1{
     font-size:45px;
-    opacity:0;
-    animation: fadeIn 3s forwards;
 }
 
 .ursinho{
-    width:220px;
-    margin-top:25px;
-    opacity:0;
-    animation: fadeIn 4s forwards;
-    animation-delay:2s;
+    width:350px; /* AQUI deixei maior */
+    margin-top:30px;
 }
 
 p{
     font-size:20px;
-    margin-top:25px;
-    opacity:0;
-    animation: fadeIn 4s forwards;
-    animation-delay:4s;
+    margin-top:30px;
 }
 
 button{
     margin-top:30px;
-    padding:12px 25px;
-    font-size:18px;
+    padding:15px 30px;
+    font-size:20px;
     background:red;
     color:white;
     border:none;
-    border-radius:10px;
+    border-radius:12px;
     cursor:pointer;
-}
-
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
 }
 
 .heart{
@@ -79,23 +66,4 @@ button{
 <img src="ursinhos-fofos-coracoes.gif" class="ursinho">
 
 <p>
-Desde o dia que eu te encontrei, tudo ficou mais bonito.
-Você é meu sorriso fácil, minha paz,
-minha melhor escolha e o meu para sempre.
-</p>
-
-<button onclick="mensagem()">Clique aqui 💌</button>
-</div>
-
-<script>
-
-function mensagem(){
-    alert("Eu prometo te amar todos os dias da minha vida, Aniely ❤️");
-}
-
-// Corações caindo
-function criarCoracao(){
-    const coracao = document.createElement("div");
-    coracao.classList.add("heart");
-    coracao.innerHTML="❤️";
-    coracao.style.left=Math.random()*100
+Desde o dia que eu te
