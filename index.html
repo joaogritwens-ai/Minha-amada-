@@ -16,7 +16,7 @@ body{
 }
 
 .container{
-    margin-top:20%;
+    margin-top:12%;
 }
 
 h1{
@@ -25,12 +25,20 @@ h1{
     animation: fadeIn 3s forwards;
 }
 
-p{
-    font-size:20px;
-    margin-top:20px;
+.ursinho{
+    width:220px;
+    margin-top:25px;
     opacity:0;
     animation: fadeIn 4s forwards;
     animation-delay:2s;
+}
+
+p{
+    font-size:20px;
+    margin-top:25px;
+    opacity:0;
+    animation: fadeIn 4s forwards;
+    animation-delay:4s;
 }
 
 button{
@@ -68,19 +76,20 @@ button{
 <div class="container">
 <h1>Aniely, eu te amo ❤️</h1>
 
+<img src="ursinhos-fofos-coracoes.gif" class="ursinho">
+
 <p>
 Desde o dia que eu te encontrei, tudo ficou mais bonito.
 Você é meu sorriso fácil, minha paz,
 minha melhor escolha e o meu para sempre.
 </p>
 
-<button onclick="iniciar()">Clique aqui 💌</button>
+<button onclick="mensagem()">Clique aqui 💌</button>
 </div>
 
 <script>
 
-function iniciar(){
-    window.open("https://www.youtube.com/watch?v=GxldQ9eX2wo", "_blank");
+function mensagem(){
     alert("Eu prometo te amar todos os dias da minha vida, Aniely ❤️");
 }
 
@@ -89,14 +98,4 @@ function criarCoracao(){
     const coracao = document.createElement("div");
     coracao.classList.add("heart");
     coracao.innerHTML="❤️";
-    coracao.style.left=Math.random()*100+"vw";
-    document.body.appendChild(coracao);
-    setTimeout(()=>{coracao.remove()},5000);
-}
-
-setInterval(criarCoracao,300);
-
-</script>
-
-</body>
-</html>
+    coracao.style.left=Math.random()*100
