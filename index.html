@@ -5,24 +5,29 @@
 <title>Para Aniely ❤️</title>
 
 <style>
-body{
+html, body{
     margin:0;
     padding:0;
-    background:linear-gradient(to bottom,#000000,#1a0000);
+    height:100%;
+}
+
+body{
+    min-height:100vh;
+    background: linear-gradient(180deg, #000000 0%, #5a0000 50%, #000000 100%);
+    background-attachment:fixed;
     font-family:Arial, sans-serif;
     color:white;
     text-align:center;
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 .container{
-    margin-top:4%;
-    padding:20px;
+    padding:40px 20px;
 }
 
 h1{
     font-size:52px;
-    text-shadow:0 0 15px red;
+    text-shadow:0 0 20px red;
 }
 
 .ursinho{
@@ -34,23 +39,23 @@ h1{
 
 .frase{
     font-size:34px;
-    margin:18px 0;
+    margin:20px 0;
     opacity:0;
-    text-shadow:0 0 10px pink;
+    text-shadow:0 0 12px pink;
     animation: aparecer 2s forwards;
 }
 
-/* Agora usando animation-delay direto */
-.frase:nth-child(3){animation-delay:2s;}
-.frase:nth-child(4){animation-delay:4s;}
-.frase:nth-child(5){animation-delay:6s;}
-.frase:nth-child(6){animation-delay:8s;}
-.frase:nth-child(7){animation-delay:10s;}
-.frase:nth-child(8){animation-delay:12s;}
-.frase:nth-child(9){animation-delay:14s;}
-.frase:nth-child(10){animation-delay:16s;}
-.frase:nth-child(11){animation-delay:18s;}
-.frase:nth-child(12){animation-delay:20s;}
+/* Atraso das frases */
+.container .frase:nth-child(3){animation-delay:2s;}
+.container .frase:nth-child(4){animation-delay:4s;}
+.container .frase:nth-child(5){animation-delay:6s;}
+.container .frase:nth-child(6){animation-delay:8s;}
+.container .frase:nth-child(7){animation-delay:10s;}
+.container .frase:nth-child(8){animation-delay:12s;}
+.container .frase:nth-child(9){animation-delay:14s;}
+.container .frase:nth-child(10){animation-delay:16s;}
+.container .frase:nth-child(11){animation-delay:18s;}
+.container .frase:nth-child(12){animation-delay:20s;}
 
 @keyframes aparecer{
     from{opacity:0; transform:translateY(20px);}
@@ -59,7 +64,7 @@ h1{
 
 .heart{
     position:fixed;
-    color:red;
+    color:#ff1a1a;
     font-size:24px;
     animation:fall 5s linear infinite;
 }
@@ -105,4 +110,4 @@ setInterval(criarCoracao,300);
 </script>
 
 </body>
-</html>opacity
+</html>
