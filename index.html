@@ -8,11 +8,11 @@
 body{
     margin:0;
     padding:0;
-    background:linear-gradient(to bottom, #000000, #1a0000);
-    overflow:hidden;
+    background:linear-gradient(to bottom,#000000,#1a0000);
     font-family:Arial, sans-serif;
     color:white;
     text-align:center;
+    overflow:hidden;
 }
 
 .container{
@@ -22,7 +22,6 @@ body{
 
 h1{
     font-size:52px;
-    margin-bottom:20px;
     text-shadow:0 0 15px red;
 }
 
@@ -38,20 +37,31 @@ h1{
     margin:18px 0;
     opacity:0;
     text-shadow:0 0 10px pink;
-    transition:opacity 1s ease, transform 1s ease;
-    transform:translateY(20px);
+    animation: aparecer 2s forwards;
 }
 
-.frase.mostrar{
-    opacity:1;
-    transform:translateY(0);
+/* Agora usando animation-delay direto */
+.frase:nth-child(3){animation-delay:2s;}
+.frase:nth-child(4){animation-delay:4s;}
+.frase:nth-child(5){animation-delay:6s;}
+.frase:nth-child(6){animation-delay:8s;}
+.frase:nth-child(7){animation-delay:10s;}
+.frase:nth-child(8){animation-delay:12s;}
+.frase:nth-child(9){animation-delay:14s;}
+.frase:nth-child(10){animation-delay:16s;}
+.frase:nth-child(11){animation-delay:18s;}
+.frase:nth-child(12){animation-delay:20s;}
+
+@keyframes aparecer{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 .heart{
     position:fixed;
     color:red;
     font-size:24px;
-    animation: fall 5s linear infinite;
+    animation:fall 5s linear infinite;
 }
 
 @keyframes fall{
@@ -83,28 +93,16 @@ h1{
 </div>
 
 <script>
-
-// Mostrar frases uma por vez automaticamente
-const frases = document.querySelectorAll(".frase");
-
-frases.forEach((frase, index) => {
-    setTimeout(() => {
-        frase.classList.add("mostrar");
-    }, index * 2000); // 2 segundos entre cada frase
-});
-
-// Corações caindo
 function criarCoracao(){
-    const coracao = document.createElement("div");
-    coracao.classList.add("heart");
-    coracao.innerHTML="❤️";
-    coracao.style.left=Math.random()*100+"vw";
-    document.body.appendChild(coracao);
-    setTimeout(()=>{coracao.remove()},5000);
+    const c=document.createElement("div");
+    c.className="heart";
+    c.innerHTML="❤️";
+    c.style.left=Math.random()*100+"vw";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
 }
 setInterval(criarCoracao,300);
-
 </script>
 
 </body>
-</html>
+</html>opacity
