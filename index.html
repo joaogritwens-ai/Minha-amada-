@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Para Aniely ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background:black;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    color:white;
+    text-align:center;
+}
+
+.container{
+    margin-top:18%;
+}
+
+h1{
+    font-size:45px;
+    opacity:0;
+    animation: fadeIn 3s forwards;
+}
+
+p{
+    font-size:20px;
+    margin-top:20px;
+    opacity:0;
+    animation: fadeIn 4s forwards;
+    animation-delay:2s;
+}
+
+button{
+    margin-top:30px;
+    padding:12px 25px;
+    font-size:18px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff4d4d;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.heart{
+    position:fixed;
+    color:red;
+    font-size:20px;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall{
+    0%{transform:translateY(-10vh);}
+    100%{transform:translateY(110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Aniely, eu te amo ❤️</h1>
+
+<p>
+Desde o dia que eu te encontrei, tudo ficou mais bonito.
+Você é meu sorriso fácil, minha paz,
+minha melhor escolha e o meu para sempre.
+</p>
+
+<button onclick="iniciar()">Clique aqui 💌</button>
+</div>
+
+<script>
+
+function iniciar(){
+
+    // Música
+    const musica = document.createElement("iframe");
+    musica.width="0";
+    musica.height="0";
+    musica.src="https://www.youtube.com/embed/GxldQ9eX2wo?autoplay=1&loop=1&playlist=GxldQ9eX2wo";
+    musica.allow="autoplay";
+    document.body.appendChild(musica);
+
+    // Mensagem final
+    setTimeout(()=>{
+        alert("Eu prometo te amar todos os dias da minha vida, Aniely ❤️");
+    },1000);
+}
+
+// Corações caindo
+function criarCoracao(){
+    const coracao = document.createElement("div");
+    coracao.classList.add("heart");
+    coracao.innerHTML="❤️";
+    coracao.style.left=Math.random()*100+"vw";
+    document.body.appendChild(coracao);
+    setTimeout(()=>{coracao.remove()},5000);
+}
+
+setInterval(criarCoracao,300);
+
+</script>
+
+</body>
+</html>
