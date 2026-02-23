@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Para Aniely ❤️</title>
+<title>Para Aniely ❤️‍🩹🥹</title>
 
 <style>
 *{
@@ -20,20 +20,18 @@ body{
     overflow-x:hidden;
 }
 
-/* Remove QUALQUER fundo duplicado */
-html{
-    background: linear-gradient(to bottom, #000000, #8b0000, #000000);
-}
-
+/* Container do conteúdo */
 .container{
     padding:40px 20px;
 }
 
+/* Título principal */
 h1{
     font-size:50px;
     text-shadow:0 0 20px red;
 }
 
+/* Ursinho */
 .ursinho{
     width:550px;
     max-width:95%;
@@ -41,15 +39,16 @@ h1{
     display:block;
 }
 
+/* Frases normais */
 .frase{
     font-size:34px;
     margin:20px 0;
     opacity:0;
-    text-shadow:0 0 10px pink;
+    text-shadow:0 0 12px pink;
     animation: aparecer 1.5s forwards;
 }
 
-/* Animação em sequência */
+/* Animação das frases em sequência */
 .frase:nth-of-type(1){animation-delay:2s;}
 .frase:nth-of-type(2){animation-delay:4s;}
 .frase:nth-of-type(3){animation-delay:6s;}
@@ -61,14 +60,59 @@ h1{
 .frase:nth-of-type(9){animation-delay:18s;}
 .frase:nth-of-type(10){animation-delay:20s;}
 
+/* Última frase final piscando */
+.final{
+    font-size:42px;
+    font-weight:bold;
+    margin:30px 0;
+    opacity:0;
+    color:#ff4d4d;
+    text-shadow:0 0 15px pink, 0 0 30px red;
+    animation: aparecer 2s forwards, piscar 1s infinite;
+    animation-delay:22s; /* aparece depois de todas as outras */
+}
+
+/* Animação de aparecer */
 @keyframes aparecer{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
+}
+
+/* Efeito piscando da frase final */
+@keyframes piscar{
+    0%, 50%, 100%{opacity:1;}
+    25%, 75%{opacity:0.5;}
+}
+
+/* Corações caindo */
+.coracoes{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    color:#ff1a1a;
+    font-size:24px;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    0%{transform:translateY(-10vh);}
+    100%{transform:translateY(110vh);}
 }
 </style>
 </head>
 
 <body>
+
+<!-- Camada de corações -->
+<div class="coracoes"></div>
 
 <div class="container">
 
@@ -87,7 +131,26 @@ h1{
 <div class="frase">"Eu te escolheria ontem, hoje e para sempre."</div>
 <div class="frase">"Meu coração encontrou casa em você."</div>
 
+<!-- Frase final piscando -->
+<div class="final">Quer viver essa história junto comigo?</div>
+
 </div>
+
+<script>
+const areaCoracoes = document.querySelector(".coracoes");
+
+// Criar corações caindo
+function criarCoracao(){
+    const c=document.createElement("div");
+    c.className="heart";
+    c.innerHTML="❤️";
+    c.style.left=Math.random()*100+"vw";
+    areaCoracoes.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+}
+
+setInterval(criarCoracao,300);
+</script>
 
 </body>
 </html>
