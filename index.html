@@ -16,32 +16,36 @@ body{
 }
 
 .container{
-    margin-top:10%;
+    margin-top:5%;
+    padding:20px;
 }
 
 h1{
-    font-size:45px;
+    font-size:48px;
+    margin-bottom:20px;
 }
 
 .ursinho{
-    width:350px; /* AQUI deixei maior */
-    margin-top:30px;
+    width:500px; /* BEM MAIOR */
+    max-width:90%;
+    margin:20px auto;
 }
 
-p{
-    font-size:20px;
-    margin-top:30px;
+.frase{
+    font-size:22px;
+    margin:15px 0;
+    opacity:0;
+    animation: aparecer 2s forwards;
 }
 
-button{
-    margin-top:30px;
-    padding:15px 30px;
-    font-size:20px;
-    background:red;
-    color:white;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
+.frase:nth-child(3){ animation-delay:2s; }
+.frase:nth-child(4){ animation-delay:4s; }
+.frase:nth-child(5){ animation-delay:6s; }
+.frase:nth-child(6){ animation-delay:8s; }
+
+@keyframes aparecer{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 .heart{
@@ -61,9 +65,33 @@ button{
 <body>
 
 <div class="container">
+
 <h1>Aniely, eu te amo ❤️</h1>
 
 <img src="ursinhos-fofos-coracoes.gif" class="ursinho">
 
-<p>
-Desde o dia que eu te
+<div class="frase">"Se eu sei o que é amor, é por sua causa."</div>
+<div class="frase">"Você é a melhor parte de todos os meus dias."</div>
+<div class="frase">"Eu escolheria você em todas as vidas."</div>
+<div class="frase">"Meu lugar favorito no mundo é ao seu lado."</div>
+
+</div>
+
+<script>
+
+// Corações caindo
+function criarCoracao(){
+    const coracao = document.createElement("div");
+    coracao.classList.add("heart");
+    coracao.innerHTML="❤️";
+    coracao.style.left=Math.random()*100+"vw";
+    document.body.appendChild(coracao);
+    setTimeout(()=>{coracao.remove()},5000);
+}
+
+setInterval(criarCoracao,300);
+
+</script>
+
+</body>
+</html>
