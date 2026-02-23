@@ -20,18 +20,15 @@ body{
     overflow-x:hidden;
 }
 
-/* Container do conteúdo */
 .container{
     padding:40px 20px;
 }
 
-/* Título principal */
 h1{
     font-size:50px;
     text-shadow:0 0 20px red;
 }
 
-/* Ursinho */
 .ursinho{
     width:550px;
     max-width:95%;
@@ -39,7 +36,6 @@ h1{
     display:block;
 }
 
-/* Frases normais */
 .frase{
     font-size:34px;
     margin:20px 0;
@@ -48,7 +44,6 @@ h1{
     animation: aparecer 1.5s forwards;
 }
 
-/* Animação das frases em sequência */
 .frase:nth-of-type(1){animation-delay:2s;}
 .frase:nth-of-type(2){animation-delay:4s;}
 .frase:nth-of-type(3){animation-delay:6s;}
@@ -60,25 +55,23 @@ h1{
 .frase:nth-of-type(9){animation-delay:18s;}
 .frase:nth-of-type(10){animation-delay:20s;}
 
-/* Última frase final maior, espaçada, piscando */
+/* Última frase final maior e piscando */
 .final{
-    font-size:46px; /* maior que as outras */
+    font-size:46px;
     font-weight:bold;
-    margin:50px 0; /* espaço maior que as outras frases */
+    margin:50px 0;
     opacity:0;
     color:#ff4d4d;
     text-shadow:0 0 15px pink, 0 0 30px red;
-    animation: aparecer 2s forwards, piscar 1s infinite;
-    animation-delay:22s; /* aparece depois de todas as outras */
 }
 
-/* Animação de aparecer */
+/* Efeito de aparecer */
 @keyframes aparecer{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
 }
 
-/* Efeito piscando da frase final */
+/* Piscando */
 @keyframes piscar{
     0%, 50%, 100%{opacity:1;}
     25%, 75%{opacity:0.5;}
@@ -111,7 +104,6 @@ h1{
 
 <body>
 
-<!-- Camada de corações -->
 <div class="coracoes"></div>
 
 <div class="container">
@@ -131,13 +123,14 @@ h1{
 <div class="frase">"Eu te escolheria ontem, hoje e para sempre."</div>
 <div class="frase">"Meu coração encontrou casa em você."</div>
 
-<!-- Frase final piscando e maior -->
+<!-- Frase final -->
 <div class="final">Quer viver essa história junto comigo?</div>
 
 </div>
 
 <script>
 const areaCoracoes = document.querySelector(".coracoes");
+const fraseFinal = document.querySelector(".final");
 
 // Criar corações caindo
 function criarCoracao(){
@@ -150,6 +143,12 @@ function criarCoracao(){
 }
 
 setInterval(criarCoracao,300);
+
+// Mostrar frase final com piscar depois de todas as outras
+setTimeout(()=>{
+    fraseFinal.style.opacity = 1;
+    fraseFinal.style.animation = "piscar 1s infinite";
+}, 22000); // 22 segundos, depois da última frase
 </script>
 
 </body>
